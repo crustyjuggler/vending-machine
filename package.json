@@ -1,0 +1,16 @@
+{
+  "name": "vending-machine",
+  "version": "1.0.0",
+  "description": "vending machine kata",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "keywords": [
+    "kata",
+    "node",
+    "vending-machine"
+  ],
+  "author": "ds",
+  "license": "ISC"
+}
