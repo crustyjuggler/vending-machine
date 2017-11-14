@@ -4,7 +4,7 @@
   "description": "vending machine kata",
   "main": "index.js",
   "scripts": {
-    "test": "test"
+    "test": "jasmine"
   },
   "keywords": [
     "kata",
