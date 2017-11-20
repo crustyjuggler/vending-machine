@@ -1,5 +1,8 @@
 const vendingMachine = {
-    display : "INSERT COINS"
+    display : "INSERT COINS",
+    InsertCoin : (coin) => {
+        return true
+    }
 }
 
 export default vendingMachine
