@@ -1,7 +1,7 @@
 const vendingMachine = require("../src/vendingMachine")
 
 describe("Vending Machine", () => {
-    it("knows what coins are", () => {
-        expect(vendingMachine.coins).toBeDefined()
+    it("knows what valid coins are", () => {
+        expect(vendingMachine.validCoins).toBeDefined()
     })
 })
