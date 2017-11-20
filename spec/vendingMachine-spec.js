@@ -8,4 +8,8 @@ describe("Vending Machine", () => {
     it("will accept coins", () => {
         expect(vendingMachine.InsertCoin()).toBeDefined()
     })
+
+    it("will accept valid coins", () => {
+        expect(vendingMachine.InsertCoin()).toBeTruthy()
+    })
 })
