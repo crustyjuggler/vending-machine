@@ -6,4 +6,4 @@ const vendingMachine = {
     ]
 }
 
-module.exports = vendingMachine
+export default vendingMachine
