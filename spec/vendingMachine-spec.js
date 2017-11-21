@@ -1,8 +1,9 @@
 import vendingMachine from "../src/vendingMachine"
 
 describe("Vending Machine", () => {
+
     it("has a display", () => {
-        expect(vendingMachine.display).toBeDefined()
+        expect(vendingMachine.InsertCoin("coin")).toBeDefined()
     })
 
     it("will accept coins", () => {
@@ -10,10 +11,14 @@ describe("Vending Machine", () => {
     })
 
     it("will accept valid coins", () => {
-        expect(vendingMachine.InsertCoin("quarter")).toBeTruthy()
+        expect(vendingMachine.InsertCoin("quarter", true)).toBeTruthy()
     })
 
     it("will reject invalid coins", () => {
         expect(vendingMachine.InsertCoin("penny")).toBeFalsy()
+    })
+
+    it("will display value of valid coins entered", () => {
+        expect(vendingMachine.InsertCoin("quarter", true).display).toBe("$0.25")
     })
 })
