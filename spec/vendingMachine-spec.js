@@ -3,7 +3,7 @@ import vendingMachine from "../src/vendingMachine"
 describe("Vending Machine", () => {
 
     it("has a display", () => {
-        expect(vendingMachine.InsertCoin("coin")).toBeDefined()
+        expect(vendingMachine.InsertCoin("quarter").display).toBeDefined()
     })
 
     it("will accept coins", () => {
