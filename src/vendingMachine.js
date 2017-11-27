@@ -15,8 +15,12 @@ const resetTotal = () => {
     total = 0
 }
 
+const formatCurrency = (number) => {
+    return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(number)
+}
+
 const display = () => {
-    return total > 0 ? '$' + total :  'INSERT COINS'
+    return total > 0 ? formatCurrency(total) :  'INSERT COINS'
 }
 
 const vendingMachine = {

@@ -27,4 +27,11 @@ describe("Vending Machine", () => {
         vendingMachine.InsertCoin("penny", true)
         expect(vendingMachine.Display()).toBe("INSERT COINS")
     })
+
+    it("will calculate and display the total coins correctly", () => {
+        vendingMachine.InsertCoin("quarter", true)
+        vendingMachine.InsertCoin("quarter")
+        vendingMachine.InsertCoin("penny")
+        expect(vendingMachine.Display()).toBe("$0.50")
+    })
 })
