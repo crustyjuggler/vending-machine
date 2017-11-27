@@ -23,6 +23,10 @@ const display = () => {
     return total > 0 ? formatCurrency(total) :  'INSERT COINS'
 }
 
+const vend = (product) => {
+    return true
+}
+
 const vendingMachine = {
     InsertCoin : (coin, reset) => {
         if (reset) resetTotal()
@@ -32,6 +36,8 @@ const vendingMachine = {
         }
         return value
     },
+
+    Vend : vend,
 
     Display : display
 }
