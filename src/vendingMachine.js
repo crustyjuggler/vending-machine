@@ -15,16 +15,21 @@ const resetTotal = () => {
     total = 0
 }
 
+const display = () => {
+    return total > 0 ? '$' + total :  'INSERT COINS'
+}
+
 const vendingMachine = {
     InsertCoin : (coin, reset) => {
         if (reset) resetTotal()
         let value = isValidCoin(coin).value || false
         if (value) {
             total += value
-            return { value: value, total: total, display: '$' + total }
         }
         return value
-    }
+    },
+
+    Display : display
 }
 
 export default vendingMachine
