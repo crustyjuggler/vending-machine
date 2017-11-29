@@ -10,9 +10,11 @@ const PRODUCTS = [
     { type: "candy", price: 0.65 }
 ]
 
-let total
-const resetTotal = (reset) => {
-    if (reset) total = 0
+let insertedCoins = []
+let total = 0.0
+const resetTotals = () => {
+    total = 0.0
+    insertedCoins = []
 }
 
 const isValidCoin = (coin) => {
@@ -26,12 +28,13 @@ const formatCurrency = (number) => {
 }
 
 const insertCoin = (coin, reset) => {
-    resetTotal(reset)
+    if (reset) resetTotals()
     let value = isValidCoin(coin).value || false
     if (value) {
         total += value
+        insertedCoins.push(coin)
     }
-    return value
+    return insertedCoins
 }
 
 const vend = (product) => {

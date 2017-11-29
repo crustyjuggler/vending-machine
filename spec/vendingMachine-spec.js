@@ -12,11 +12,11 @@ describe("Vending Machine", () => {
         })
     
         it("will accept valid coins", () => {
-            expect(vendingMachine.InsertCoin("quarter", true)).toBeTruthy()
+            expect(vendingMachine.InsertCoin("quarter", true).length).toBe(1)
         })
     
         it("will reject invalid coins", () => {
-            expect(vendingMachine.InsertCoin("penny")).toBeFalsy()
+            expect(vendingMachine.InsertCoin("penny", true).length).toBe(0)
         })
     
         it("will display value of valid coins inserted", () => {
