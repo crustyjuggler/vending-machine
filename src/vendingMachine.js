@@ -12,14 +12,22 @@ const PRODUCTS = [
 
 let insertedCoins = []
 let total = 0.0
+let displayText = "INSERT COINS"
 const resetTotals = () => {
     total = 0.0
     insertedCoins = []
+    displayText = "INSERT COINS"
 }
 
 const isValidCoin = (coin) => {
     return VALIDCOINS.find((validCoin) => {
         return validCoin.type === coin
+    }) || false
+}
+
+const getProduct = (selectedProduct) => {
+    return PRODUCTS.find((listProduct) => {
+        return listProduct.type === selectedProduct
     }) || false
 }
 
@@ -37,14 +45,19 @@ const insertCoin = (coin, reset) => {
     return insertedCoins
 }
 
-const vend = (product) => {
-    return PRODUCTS.find((listProduct) => {
-        return listProduct.type === product
-    }) || false
+const vend = (selectedProduct) => {
+    let product = getProduct(selectedProduct)
+    if (product) {
+        if (total >= product.price) {
+            total = 0.0
+            displayText = "THANK YOU"
+        }
+    }
+    return product || false
 }
 
 const display = () => {
-    return total > 0 ? formatCurrency(total) :  'INSERT COINS'
+    return total > 0 ? formatCurrency(total) : displayText
 }
 
 const vendingMachine = {
