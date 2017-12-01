@@ -48,6 +48,14 @@ describe("Vending Machine", () => {
             vendingMachine.Vend("chips")
             expect(vendingMachine.Display()).toBe("THANK YOU")
         })
+
+        it("displays INSERT COINS after a successful vend", () => {
+            vendingMachine.InsertCoin("quarter", true)
+            vendingMachine.InsertCoin("quarter")
+            vendingMachine.Vend("chips")
+            vendingMachine.Display()
+            expect(vendingMachine.Display()).toBe("INSERT COINS")
+        })
     })
 
 })

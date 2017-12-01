@@ -10,13 +10,16 @@ const PRODUCTS = [
     { type: "candy", price: 0.65 }
 ]
 
+let vendMessageIndicator = false
 let insertedCoins = []
 let total = 0.0
 let displayText = "INSERT COINS"
+
 const resetTotals = () => {
     total = 0.0
     insertedCoins = []
     displayText = "INSERT COINS"
+    vendMessageIndicator = false
 }
 
 const isValidCoin = (coin) => {
@@ -50,6 +53,7 @@ const vend = (selectedProduct) => {
     if (product) {
         if (total >= product.price) {
             total = 0.0
+            vendMessageIndicator = true
             displayText = "THANK YOU"
         }
     }
@@ -57,7 +61,18 @@ const vend = (selectedProduct) => {
 }
 
 const display = () => {
-    return total > 0 ? formatCurrency(total) : displayText
+    let message = ""
+    if (total > 0) {
+        message = formatCurrency(total)
+    } else {
+        if (vendMessageIndicator) {
+            message = displayText
+            resetTotals()
+        } else {
+            message = "INSERT COINS"
+        }
+    }
+    return message
 }
 
 const vendingMachine = {
