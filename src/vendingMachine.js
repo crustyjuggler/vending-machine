@@ -51,10 +51,13 @@ const insertCoin = (coin, reset) => {
 const vend = (selectedProduct) => {
     let product = getProduct(selectedProduct)
     if (product) {
+        vendMessageIndicator = true
         if (total >= product.price) {
             total = 0.0
             vendMessageIndicator = true
             displayText = "THANK YOU"
+        } else {
+            displayText = "PRICE " + formatCurrency(product.price)
         }
     }
     return product || false
@@ -63,7 +66,12 @@ const vend = (selectedProduct) => {
 const display = () => {
     let message = ""
     if (total > 0) {
-        message = formatCurrency(total)
+        if (vendMessageIndicator) {
+            message = displayText
+            vendMessageIndicator = false
+        } else {
+            message = formatCurrency(total)
+        }      
     } else {
         if (vendMessageIndicator) {
             message = displayText
