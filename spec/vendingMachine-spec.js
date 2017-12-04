@@ -62,6 +62,14 @@ describe("Vending Machine", () => {
             vendingMachine.Vend("candy")
             expect(vendingMachine.Display()).toBe("PRICE $0.65")
         })
+
+        it("displays displays value of valid coins inserted after unsuccessful vend", () => {
+            vendingMachine.InsertCoin("quarter", true)
+            vendingMachine.InsertCoin("quarter")
+            vendingMachine.Vend("candy")
+            vendingMachine.Display()
+            expect(vendingMachine.Display()).toBe("$0.50")
+        })
     })
 
 })
